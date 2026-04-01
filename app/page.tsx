@@ -553,7 +553,17 @@ function Card({
   );
 }
 
-function SectionIntro({ eyebrow, title, centered = false, largeTitle = false }) {
+function SectionIntro({
+  eyebrow,
+  title,
+  centered = false,
+  largeTitle = false,
+}: {
+  eyebrow?: string;
+  title: string;
+  centered?: boolean;
+  largeTitle?: boolean;
+}) {
   return (
     <Card className={`overflow-hidden p-8 md:p-10 ${centered ? 'flex min-h-[220px] items-center justify-center text-center' : ''}`}>
       <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(205,176,149,0.16),transparent_68%)]" />
