@@ -538,7 +538,11 @@ function SiteBackgroundAnimation() {
   );
 }
 
-function Card({ children, className = '', ...props }) {
+function Card({
+  children,
+  className = '',
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & { children: React.ReactNode }) {
   return (
     <div
       className={`relative rounded-[2rem] border border-[rgba(219,204,190,0.78)] bg-[linear-gradient(180deg,rgba(255,255,255,0.76),rgba(250,246,241,0.72))] shadow-[0_18px_50px_rgba(120,98,79,0.07)] backdrop-blur-sm ${className}`}
