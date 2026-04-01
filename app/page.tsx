@@ -6,7 +6,7 @@ const Mail = () => <span aria-hidden="true" className="text-2xl text-rose-300">â
 const Phone = () => <span aria-hidden="true" className="text-2xl text-rose-300">â˜Ž</span>;
 const Linkedin = () => <span aria-hidden="true" className="text-2xl text-rose-300 font-medium">in</span>;
 
-const ToolIcon = ({ name }) => {
+const ToolIcon = ({ name }: { name: string }) => {
   const common = 'h-5 w-5 shrink-0';
 
   switch (name) {
