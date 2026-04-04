@@ -146,6 +146,7 @@ export default function NicolettePortfolio() {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
+    { id: 'featured', label: 'Featured Work' },
     { id: 'skills', label: 'Skills' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -305,6 +306,8 @@ export default function NicolettePortfolio() {
             </div>
           </div>
         );
+        case 'featured':
+  return <FeaturedExperiencePage />;
       case 'skills':
         return (
           <div className="space-y-6">
@@ -574,5 +577,133 @@ function SectionIntro({
         </h2>
       </div>
     </Card>
+  );
+}
+function FeaturedExperiencePage() {
+  return (
+    <div className="min-h-screen p-10">
+      <div className="max-w-6xl mx-auto bg-white rounded-[2rem] shadow-xl p-8">
+        <h1 className="text-4xl font-medium">A List-Me</h1>
+        <p className="text-lg text-[#c78fa4] mt-2">
+          Influencer Talent Management Intern
+        </p>
+
+        <p className="mt-6 text-black/70">
+          Supported weekly influencer sourcing and outreach by identifying creators,
+          prioritizing green-flagged talent, and moving qualified leads into active conversations.
+        </p>
+
+        <div className="mt-10 border rounded-[1.5rem] overflow-hidden">
+          <div className="bg-gradient-to-r from-[#f6e6eb] to-[#efd6de] p-5">
+            <p className="text-xs uppercase text-[#a87c8a]">Inbox Simulation</p>
+            <h2 className="text-xl">Creator Reply Snapshot</h2>
+          </div>
+
+          <div className="p-5 space-y-4">
+            {[
+              {
+                name: "Lifestyle Creator",
+                handle: "@dailybydesign",
+                subject: "Re: Partnership Opportunity",
+                preview: "Would love to hop on a call and hear more about the team.",
+                time: "10:24 AM",
+              },
+              {
+                name: "Beauty Creator",
+                handle: "@skinroutineedit",
+                subject: "Thanks for reaching out",
+                preview: "This sounds aligned. Happy to set up a quick intro call.",
+                time: "1:16 PM",
+              },
+              {
+                name: "Fashion Creator",
+                handle: "@styled.inmotion",
+                subject: "Interested",
+                preview: "Open to chatting more — feel free to send over times that work.",
+                time: "4:42 PM",
+              },
+            ].map((email, i) => (
+              <div key={i} className="border rounded-xl p-4 bg-white shadow-sm">
+                <div className="flex justify-between text-sm">
+                  <span className="font-medium">{email.name}</span>
+                  <span className="text-black/40">{email.time}</span>
+                </div>
+                <p className="text-xs text-black/50">{email.handle}</p>
+                <p className="text-xs mt-2 uppercase text-black/40">{email.subject}</p>
+                <p className="mt-2">“{email.preview}”</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="rounded-[1.6rem] border border-black/8 bg-white p-5 shadow-[0_10px_28px_rgba(0,0,0,0.05)]">
+            <p className="text-xs uppercase tracking-[0.24em] text-black/40">Strategy</p>
+            <div className="mt-4 space-y-3">
+              {[
+                "Focused on creators in fashion, beauty, and lifestyle who aligned with talent and partnership goals",
+                "Prioritized green-flagged influencers based on fit, engagement potential, and outreach readiness",
+                "Used a repeatable follow-up cadence to keep outreach organized and consistent",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#b99286]" />
+                  <p className="text-sm leading-7 text-black/75">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[1.6rem] border border-black/8 bg-white p-5 shadow-[0_10px_28px_rgba(0,0,0,0.05)]">
+            <p className="text-xs uppercase tracking-[0.24em] text-black/40">Metrics</p>
+            <div className="mt-5 space-y-5">
+              {[
+                { value: 25, label: "Influencers reached out", suffix: "" },
+                { value: 3, label: "Follow-ups", suffix: "x" },
+                { value: 12, label: "Creators requesting calls per week", suffix: "" },
+              ].map((metric) => {
+                const max = 25;
+                const width = `${(metric.value / max) * 100}%`;
+
+                return (
+                  <div key={metric.label} className="space-y-2">
+                    <div className="flex items-end justify-between gap-3">
+                      <span className="text-sm leading-6 text-black/70 max-w-[75%]">
+                        {metric.label}
+                      </span>
+                      <span className="text-xl font-medium text-[#b78498]">
+                        {metric.value}{metric.suffix}
+                      </span>
+                    </div>
+
+                    <div className="h-3 w-full overflow-hidden rounded-full bg-[#f3e7eb]">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-[#e7c2d0] to-[#c78fa4]"
+                        style={{ width }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="rounded-[1.6rem] border border-black/8 bg-white p-5 shadow-[0_10px_28px_rgba(0,0,0,0.05)]">
+            <p className="text-xs uppercase tracking-[0.24em] text-black/40">Impact</p>
+            <div className="mt-4 space-y-3">
+              {[
+                "Built a more measurable creator outreach pipeline week over week",
+                "Helped move sourced creators into active conversations and next-step calls",
+                "Turned backend sourcing work into a structured outreach process with visible momentum",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#b99286]" />
+                  <p className="text-sm leading-7 text-black/75">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
